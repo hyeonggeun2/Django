@@ -6,20 +6,19 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <!--  bootstrap  -->
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap.css">
 </head>
 <body>
     <h1>Post List!</h1>
+    {% for post in posts %}
     <div>
-        <p>published: 12.11.2019, 14:38</p>
-        <h2><a href="">My First post</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore, doloremque enim error est eveniet id illo itaque minus neque quis quod repellendus sequi sit tenetur ullam vero? Hic, natus.</p>
+        <div>{{ post.title }}</div>
+        <div>{{ post.author }}</div>
+        <div>{{ post.created_date }}</div>
+        <div>{{ post.published_date }}</div>
     </div>
-    <div>
-        <p>published: 12.11.2019, 14:45</p>
-        <h2><a href="">My Second post</a></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolore, doloremque enim error est eveniet id illo itaque minus neque quis quod repellendus sequi sit tenetur ullam vero? Hic, natus.</p>
-    </div>
-
-
+    {% endfor %}
 </body>
 </html>
