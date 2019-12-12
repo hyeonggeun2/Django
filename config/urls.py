@@ -42,11 +42,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import post_list, post_detail
+from blog.views import post_list, post_detail, post_add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # post-list라는 URL에 온 요청을 post_list 함수가 처리
-    path('post-list/', post_list),
-    path('post-detail/<int:pk>/', post_detail)
+    # url 에 이름을 줘서 html 문서에 동저으로 할당할 수 있음.
+    path('posts/', post_list, name='url-name-post-list'),
+    path('post-detail/<int:pk>/', post_detail, name='url-name-post-detail'),
+    path('posts/add/', post_add, name='url-name-post-add')
 ]
