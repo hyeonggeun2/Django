@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from blog.models import Post
@@ -14,5 +15,14 @@ def post_list(request):
     return render(request, 'post_list.html', context)
 
 
-def post_detail(request):
-    return render(request, 'post_detail.html')
+def post_detail(request, pk):
+    try:
+        post = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        return HttpResponse('없음')
+
+    context = {
+        'post': post
+    }
+
+    return render(request, 'post_detail.html', context)
