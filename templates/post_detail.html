@@ -11,8 +11,15 @@
         <!-- 줄바꿈 및 최대출력 글자 설정 -->
         <p class="card-text">{{ post.text|linebreaksbr }}</p>
         <div class="text-right">
-            <span>{{ post.created_date }}</span>
+            <span>created) {{ post.created_date }}</span>
         </div>
+        <div class="text-right">
+            <span>published) {{ post.published_date }}</span>
+        </div>
+        <a href="{% url 'url-name-post-del-conf' pk=post.pk %}"><button type="submit">삭제</button></a>
+        <a href="{% url 'url-name-post-edit' pk=post.pk %}"><button type="submit">편집</button></a>
+        <a href="{% url 'url-name-post-publish' pk=post.pk %}"><button type="submit">시간편집</button></a>
+        <a href="{% url 'url-name-post-unpublish' pk=post.pk %}"><button type="submit">시간초기화</button></a>
     </div>
 </div>
 {% endblock %}

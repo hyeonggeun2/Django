@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<h4>정말로 이 글을 삭제하시겠습니까?</h4>
+<h5>제목 : {{ post.title }}</h5>
+<p>작성일자 : {{ post.created_date }}</p>
+<div class="d-flex">
+    <form method="post" action="{% url 'url-name-post-delete' pk=post.pk %}">
+        {% csrf_token %}
+        <button>삭제</button>
+    </form>
+    <a href="{% url 'url-name-post-detail' pk=post.pk %}"><button>이전으로</button></a>
+
+</div>
+{% endblock %}

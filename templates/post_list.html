@@ -13,7 +13,10 @@
         <!-- 줄바꿈 및 최대출력 글자 설정 -->
         <p class="card-text">{{ post.text|linebreaksbr|truncatechars:250 }}</p>
         <div class="text-right">
-            <span>{{ post.created_date }}</span>
+            <span>created) {{ post.created_date }}</span>
+        </div>
+        <div class="text-right">
+            <span>published) {{ post.published_date }}</span>
         </div>
     </div>
 </div>

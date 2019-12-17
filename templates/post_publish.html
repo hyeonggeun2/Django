@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="">시간</label>
+            <input name="date" type="datetime-local">
+        </div>
+        <button type="submit" class="btn btn-primary">설정</button>
+    </form>
+</div>
+{% endblock %}

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import post_list, post_detail
+from blog.views import post_list, post_detail, post_delete_confirm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,7 +42,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import post_list, post_detail, post_add
+from blog.views import post_list, post_detail, post_add, post_delete, post_edit, post_publish, post_unpublish
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -50,5 +50,10 @@ urlpatterns = [
     # url 에 이름을 줘서 html 문서에 동저으로 할당할 수 있음.
     path('posts/', post_list, name='url-name-post-list'),
     path('post-detail/<int:pk>/', post_detail, name='url-name-post-detail'),
-    path('posts/add/', post_add, name='url-name-post-add')
+    path('posts/add/', post_add, name='url-name-post-add'),
+    path('posts-delete/<int:pk>/', post_delete, name='url-name-post-delete'),
+    path('posts-edit/<int:pk>/', post_edit, name='url-name-post-edit'),
+    path('posts-publish/<int:pk>/', post_publish, name='url-name-post-publish'),
+    path('posts-unpublish/<int:pk>/', post_unpublish, name='url-name-post-unpublish'),
+    path('post-delete-conf/<int:pk>', post_delete_confirm, name='url-name-post-del-conf')
 ]
