@@ -84,3 +84,7 @@ def post_publish(request, pk):
 def post_unpublish(request, pk):
     Post.objects.filter(pk=pk).update(published_date=None)
     return redirect('url-name-post-detail', pk)
+
+
+def naver_login(request):
+    pass

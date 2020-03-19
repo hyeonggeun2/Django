@@ -42,7 +42,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import post_list, post_detail, post_add, post_delete, post_edit, post_publish, post_unpublish
+from blog.views import post_list, post_detail, post_add, post_delete, post_edit, post_publish, post_unpublish, naver_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -55,5 +55,6 @@ urlpatterns = [
     path('posts-edit/<int:pk>/', post_edit, name='url-name-post-edit'),
     path('posts-publish/<int:pk>/', post_publish, name='url-name-post-publish'),
     path('posts-unpublish/<int:pk>/', post_unpublish, name='url-name-post-unpublish'),
-    path('post-delete-conf/<int:pk>', post_delete_confirm, name='url-name-post-del-conf')
+    path('post-delete-conf/<int:pk>', post_delete_confirm, name='url-name-post-del-conf'),
+    path('members/naver-login/', naver_login, name='naver-login')
 ]
